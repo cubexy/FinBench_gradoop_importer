@@ -62,12 +62,12 @@ public class EdgeMapper implements Serializable {
 
         edgeProps.set(SOURCE_ID, edgeData.f0);
         edgeProps.set("TargetID", edgeData.f1);
-        edgeProps.set("Amount", edgeData.f2);
-        edgeProps.set("CreateTime", edgeData.f3);
-        edgeProps.set("OrderNum", edgeData.f4);
-        edgeProps.set("Comment", edgeData.f5);
-        edgeProps.set("PayType", edgeData.f6);
-        edgeProps.set("GoodsType", edgeData.f7);
+        edgeProps.set("amount", edgeData.f2);
+        edgeProps.set("timestamp", edgeData.f3);
+        edgeProps.set("orderNumber", edgeData.f4);
+        edgeProps.set("comment", edgeData.f5);
+        edgeProps.set("payType", edgeData.f6);
+        edgeProps.set("goodsType", edgeData.f7);
 
         TemporalEdge edge = factory.createEdge("Transfer", sourceId, targetId, edgeProps);
 
@@ -84,9 +84,9 @@ public class EdgeMapper implements Serializable {
      * @throws ParseException if an error occurs during converting DateTime to UNIX
      */
 
-    public TemporalEdge mapInvest(Tuple2<Tuple2<Tuple4<String, String, String, String>, GradoopId>, GradoopId> data) throws ParseException {
+    public TemporalEdge mapInvest(Tuple2<Tuple2<Tuple4<String, String, Double, String>, GradoopId>, GradoopId> data) throws ParseException {
 
-        Tuple4<String, String, String, String> edgeData = data.f0.f0;
+        Tuple4<String, String, Double, String> edgeData = data.f0.f0;
 
         GradoopId sourceId = data.f0.f1;
         GradoopId targetId = data.f1;
@@ -94,8 +94,8 @@ public class EdgeMapper implements Serializable {
 
         edgeProps.set(SOURCE_ID, edgeData.f0);
         edgeProps.set("TargetID", edgeData.f1);
-        edgeProps.set("InvestmentAmount", edgeData.f2);
-        edgeProps.set("CreateTime", edgeData.f3);
+        edgeProps.set("ratio", edgeData.f2);
+        edgeProps.set("timestamp", edgeData.f3);
 
 
         TemporalEdge edge = factory.createEdge("Invest", sourceId, targetId, edgeProps);
@@ -122,7 +122,7 @@ public class EdgeMapper implements Serializable {
 
         edgeProps.set(SOURCE_ID, edgeData.f0);
         edgeProps.set("TargetID", edgeData.f1);
-        edgeProps.set("CreateTime", edgeData.f2);
+        edgeProps.set("timestamp", edgeData.f2);
 
         TemporalEdge edge = factory.createEdge("Own", sourceId, targetId, edgeProps);
         edge.setValidFrom(convertTimeToUnix(edgeData.f2));
@@ -138,9 +138,9 @@ public class EdgeMapper implements Serializable {
      * @throws ParseException if an error occurs during converting DateTime to UNIX
      */
 
-    public TemporalEdge mapDeposit(Tuple2<Tuple2<Tuple4<String, String, String, String>, GradoopId>, GradoopId> data) throws ParseException {
+    public TemporalEdge mapDeposit(Tuple2<Tuple2<Tuple4<String, String, Double, String>, GradoopId>, GradoopId> data) throws ParseException {
 
-        Tuple4<String, String, String, String> edgeData = data.f0.f0;
+        Tuple4<String, String, Double, String> edgeData = data.f0.f0;
         GradoopId sourceId = data.f0.f1;
         GradoopId targetId = data.f1;
 
@@ -148,8 +148,8 @@ public class EdgeMapper implements Serializable {
 
         edgeProps.set(SOURCE_ID, edgeData.f0);
         edgeProps.set("TargetID", edgeData.f1);
-        edgeProps.set("Amount", edgeData.f2);
-        edgeProps.set("CreateTime", edgeData.f3);
+        edgeProps.set("amount", edgeData.f2);
+        edgeProps.set("timestamp", edgeData.f3);
 
         TemporalEdge edge = factory.createEdge("Deposit", sourceId, targetId, edgeProps);
 
@@ -166,9 +166,9 @@ public class EdgeMapper implements Serializable {
      * @throws ParseException if an error occurs during converting DateTime to UNIX
      */
 
-    public TemporalEdge mapRepay(Tuple2<Tuple2<Tuple4<String, String, String, String>, GradoopId>, GradoopId> data) throws ParseException {
+    public TemporalEdge mapRepay(Tuple2<Tuple2<Tuple4<String, String, Double, String>, GradoopId>, GradoopId> data) throws ParseException {
 
-        Tuple4<String, String, String, String> edgeData = data.f0.f0;
+        Tuple4<String, String, Double, String> edgeData = data.f0.f0;
         GradoopId sourceId = data.f0.f1;
         GradoopId targetId = data.f1;
 
@@ -176,8 +176,8 @@ public class EdgeMapper implements Serializable {
 
         edgeProps.set(SOURCE_ID, edgeData.f0);
         edgeProps.set("TargetID", edgeData.f1);
-        edgeProps.set("Amount", edgeData.f2);
-        edgeProps.set("CreateTime", edgeData.f3);
+        edgeProps.set("amount", edgeData.f2);
+        edgeProps.set("timestamp", edgeData.f3);
 
         TemporalEdge edge = factory.createEdge("Repay", sourceId, targetId, edgeProps);
 
@@ -204,8 +204,8 @@ public class EdgeMapper implements Serializable {
 
         edgeProps.set(SOURCE_ID, edgeData.f0);
         edgeProps.set("TargetID", edgeData.f1);
-        edgeProps.set("CreateTime", edgeData.f2);
-        edgeProps.set("Location", edgeData.f3);
+        edgeProps.set("timestamp", edgeData.f2);
+        edgeProps.set("location", edgeData.f3);
 
         TemporalEdge edge = factory.createEdge("SignIn", sourceId, targetId, edgeProps);
 
@@ -222,9 +222,9 @@ public class EdgeMapper implements Serializable {
      * @throws ParseException if an error occurs during converting DateTime to UNIX
      */
 
-    public TemporalEdge mapWithdraw(Tuple2<Tuple2<Tuple4<String, String, String, String>, GradoopId>, GradoopId> data) throws ParseException {
+    public TemporalEdge mapWithdraw(Tuple2<Tuple2<Tuple4<String, String, Double, String>, GradoopId>, GradoopId> data) throws ParseException {
 
-        Tuple4<String, String, String, String> edgeData = data.f0.f0;
+        Tuple4<String, String, Double, String> edgeData = data.f0.f0;
         GradoopId sourceId = data.f0.f1;
         GradoopId targetId = data.f1;
 
@@ -232,8 +232,8 @@ public class EdgeMapper implements Serializable {
 
         edgeProps.set(SOURCE_ID, edgeData.f0);
         edgeProps.set("TargetID", edgeData.f1);
-        edgeProps.set("Amount", edgeData.f2);
-        edgeProps.set("CreateTime", edgeData.f3);
+        edgeProps.set("amount", edgeData.f2);
+        edgeProps.set("timestamp", edgeData.f3);
 
         TemporalEdge edge = factory.createEdge("Withdraw", sourceId, targetId, edgeProps);
 
@@ -260,8 +260,8 @@ public class EdgeMapper implements Serializable {
 
         edgeProps.set(SOURCE_ID, edgeData.f0);
         edgeProps.set("TargetID", edgeData.f1);
-        edgeProps.set("CreateTime", edgeData.f2);
-        edgeProps.set("Relation", edgeData.f3);
+        edgeProps.set("timestamp", edgeData.f2);
+        edgeProps.set("relationship", edgeData.f3);
 
         TemporalEdge edge = factory.createEdge("Guarantee", sourceId, targetId, edgeProps);
 
@@ -288,8 +288,8 @@ public class EdgeMapper implements Serializable {
 
         edgeProps.set(SOURCE_ID, edgeData.f0);
         edgeProps.set(TARGET_ID, edgeData.f1);
-        edgeProps.set("CreateTime", edgeData.f2);
-        edgeProps.set("Org", edgeData.f3);
+        edgeProps.set("timestamp", edgeData.f2);
+        edgeProps.set("organization", edgeData.f3);
 
         TemporalEdge edge = factory.createEdge("Apply", sourceId, targetId, edgeProps);
 
