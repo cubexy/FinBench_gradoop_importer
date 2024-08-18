@@ -59,7 +59,7 @@ public class HelperFunction {
      * @param vertices the DataSet of TemporalVertex objects.
      * @return a DataSet of tuples containing the orignial FinBenchID and the corresponding GradoopId.
      */
-    public static DataSet<Tuple2<String, GradoopId>>  generateIdPairs(DataSet<TemporalVertex> vertices) {
+    public static DataSet<Tuple2<String, GradoopId>> generateIdPairs(DataSet<TemporalVertex> vertices) {
         return vertices
                 .map(vertex -> new Tuple2<>(vertex.getPropertyValue("ID").toString(), vertex.getId()))
                 .returns(new TypeHint<Tuple2<String, GradoopId>>() {})
