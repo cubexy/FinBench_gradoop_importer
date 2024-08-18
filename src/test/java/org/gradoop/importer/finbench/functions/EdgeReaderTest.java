@@ -74,12 +74,12 @@ public class EdgeReaderTest extends AbstractTestBase {
         assertEquals("Transfer", edge.getLabel());
         assertEquals("source-id", edge.getPropertyValue("SourceID").toString());
         assertEquals("target-id", edge.getPropertyValue("TargetID").toString());
-        assertEquals(1000.0, edge.getPropertyValue("Amount").getDouble(), 0);
-        assertEquals("2022-08-05 10:15:30", edge.getPropertyValue("CreateTime").toString());
-        assertEquals("order123", edge.getPropertyValue("OrderNum").toString());
-        assertEquals("payment", edge.getPropertyValue("Comment").toString());
-        assertEquals("card", edge.getPropertyValue("PayType").toString());
-        assertEquals("electronics", edge.getPropertyValue("GoodsType").toString());
+        assertEquals(1000.0, edge.getPropertyValue("amount").getDouble(), 0);
+        assertEquals("2022-08-05 10:15:30", edge.getPropertyValue("timestamp").toString());
+        assertEquals("order123", edge.getPropertyValue("orderNumber").toString());
+        assertEquals("payment", edge.getPropertyValue("comment").toString());
+        assertEquals("card", edge.getPropertyValue("payType").toString());
+        assertEquals("electronics", edge.getPropertyValue("goodsType").toString());
 
         long expectedValidFrom = convertTimeToUnix("2022-08-05 10:15:30");
         assertEquals(expectedValidFrom, edge.getValidFrom().longValue());
@@ -88,7 +88,7 @@ public class EdgeReaderTest extends AbstractTestBase {
     private File createSampleTransferCSV() throws IOException {
         File file = tempFolder.newFile("transfers.csv");
         try (FileWriter writer = new FileWriter(file)) {
-            writer.write("SourceID|TargetID|Amount|CreateTime|OrderNum|Comment|PayType|GoodsType\n");
+            writer.write("SourceID|TargetID|amount|createTime|orderNumber|comment|payType|goodsType\n");
             writer.write("source-id|target-id|1000.0|2022-08-05 10:15:30|order123|payment|card|electronics\n");
         }
         return file;
