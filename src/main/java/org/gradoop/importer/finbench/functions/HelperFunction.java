@@ -61,7 +61,7 @@ public class HelperFunction {
      */
     public static DataSet<Tuple2<String, GradoopId>> generateIdPairs(DataSet<TemporalVertex> vertices) {
         return vertices
-                .map(vertex -> new Tuple2<>(vertex.getPropertyValue("ID").toString(), vertex.getId()))
+                .map(vertex -> new Tuple2<>(vertex.getPropertyValue("id").toString(), vertex.getId()))
                 .returns(new TypeHint<Tuple2<String, GradoopId>>() {})
                 .distinct();
     }
