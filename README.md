@@ -1,7 +1,7 @@
 [![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/apache/maven.svg?label=License)](https://www.apache.org/licenses/LICENSE-2.0)
 # Gradoop: FinBench Dataset Importer
 
-This is an supporting application for [Gradoop](https://github.com/dbs-leipzig/gradoop), allows importing FinBench datasets as TPGM in Gradoop for further graph analyzing and processing.
+This is a supporting application for [Gradoop](https://github.com/dbs-leipzig/gradoop), allows importing FinBench datasets as TPGM in Gradoop for further graph analyzing and processing.
 This project is built using Apache Flink `1.9.3` and Gradoop `0.7.0-SNAPSHOT`
 
 > This project was developed during a Bachelor's thesis at Leipzig University.
